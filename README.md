@@ -57,6 +57,7 @@ conda install -c bioconda hifiasm
 **Run assembly pipeline (Example for schVir)**
 ```bash
 outdir="/n/netscratch/edwards_lab/Lab/kelsielopez/suboscines/schVir"
+input_name="/n/netscratch/edwards_lab/Lab/kelsielopez/suboscines/1_A01/hifi_reads/m84147_250529_184003_s1.hifi_reads.bc1015"
 sample_name="schVir"
 mkdir -p ${outdir}
 hifiasm -o ${outdir}/${sample_name} -t 32 ${input_name}.fastq.gz
