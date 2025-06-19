@@ -7,6 +7,13 @@ Adjust sample paths and variable names as needed.
 
 ---
 
+## Useful Links
+
+- [bam2fastq GitHub](https://github.com/PacificBiosciences/bam2fastx)
+- [pbtk on Bioconda](https://anaconda.org/bioconda/pbtk)
+- [hifiasm GitHub](https://github.com/chhylp123/hifiasm)
+- [hifiasm documentation (FAQ)](https://hifiasm.readthedocs.io/en/latest/faq.html#how-do-i-get-contigs-in-fasta)
+
 ## Sample BAM Input Files
 
 - schVir — Schiffornis virescens  
