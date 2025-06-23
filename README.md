@@ -108,6 +108,19 @@ awk '/^S/{print ">"\$2;print \$3}' \
 ```bash
 # First install quast https://github.com/ablab/quast
 
+# download Source code (quast-5.3.0.tar.gz) from this link 
+https://github.com/ablab/quast/releases
+
+# move from your downlaods on your local desktop to your home directroy (cd ~ or cd) on the cluster using filezilla
+
+# change into your home directory
+cd
+
+# unzip the tar file 
+tar -xvf quast-quast_5.3.0.tar
+
+# bunch of files should be unpacekd
+
 mkdir /n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/03_QC/00_quast
 
 ```
