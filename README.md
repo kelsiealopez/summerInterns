@@ -56,20 +56,43 @@ conda install -c bioconda hifiasm
 
 **Run assembly pipeline (Example for schVir)**
 ```bash
+#!/bin/bash
+#SBATCH -p shared # submit to shared partition because you can run jobs for a long time #https://docs.rc.fas.harvard.edu/kb/running-jobs/
+#SBATCH -c 32
+#SBATCH -t 2-00:00 # submit 2 days. I don't think it will take more than 12-24 hours but it is better to over request just in case
+#SBATCH -o hifiasm_schVir_%j.out
+#SBATCH -e hifiasm_schVir_%j.err 
+#SBATCH --mem=150000 # maximum for shared partition is 184Gb so i requested 150 gb
+#SBATCH --mail-type=END
+
+# make sure to load python environment 
+
 outdir="/n/netscratch/edwards_lab/Lab/kelsielopez/suboscines/schVir"
 input_name="/n/netscratch/edwards_lab/Lab/kelsielopez/suboscines/1_A01/hifi_reads/m84147_250529_184003_s1.hifi_reads.bc1015"
 sample_name="schVir"
 mkdir -p ${outdir}
 hifiasm -o ${outdir}/${sample_name} -t 32 ${input_name}.fastq.gz
+
+
 ```
 
 ## 3. Convert gfa to fa
 ```bash
+#!/bin/bash
+#SBATCH -p test # this shouldn't take too logn so you can submit to test partition. test partition is for quick jobs taht take less than 12 hours
+#SBATCH -c 8
+#SBATCH -t 0-03:00 # submit for 3 hours which is probably more than enough but still over requesting is better than under requesting and having your job time out 
+#SBATCH -o gfa_to_fa_%j.out
+#SBATCH -e gfa_to_fa_%j.err 
+#SBATCH --mem=32000 # don't need too much memory
+#SBATCH --mail-type=END
+
 indir="/n/netscratch/edwards_lab/Lab/kelsielopez/suboscines/schVir"
 sample_name="schVir"
 awk '/^S/{print ">"\$2;print \$3}' \
   ${indir}/${sample_name}.bp.hap1.p_ctg.gfa \
   > ${indir}/${sample_name}.bp.hap1.p_ctg.fa
+
 ```
 
 
