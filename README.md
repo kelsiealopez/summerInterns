@@ -107,6 +107,8 @@ awk '/^S/{print ">"\$2;print \$3}' \
 ```bash
 # First install quast https://github.com/ablab/quast
 
+mkdir /n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/03_QC/00_quast
+
 ```
 
 ```bash
@@ -132,6 +134,33 @@ ${indir}/${sample}.p_ctg.fa --large \
 ```
 
 
+
+## 4. Run BUSCO to test assembly completeness
+
+
+```bash
+# First install busco
+
+mkdir /n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/03_QC/01_busco
+
+```
+
+```bash
+#!/bin/bash
+#SBATCH -p test 
+#SBATCH -c 8
+#SBATCH -t 0-12:00
+#SBATCH -o output_busco_schVir_%j.out
+#SBATCH -e errors_busco_schVir_%j.err 
+#SBATCH --mem=64G
+#SBATCH --mail-type=END
+
+indir="/n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/02_assembly/01_fa" # these are old directories and different files but you know what to do for the suboscines
+outdir="/n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/03_QC/01_busco"
+sample="schVir"
+
+# example code 
+```
 
 
 
