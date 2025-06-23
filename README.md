@@ -155,7 +155,7 @@ mkdir /n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/03_QC/01_bus
 #SBATCH --mem=64G
 #SBATCH --mail-type=END
 
-indir="/n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/02_assembly/01_fa" # these are old directories and different files but you know what to do for the suboscines
+indir="/n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/02_assembly/01_fa"
 outdir="/n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/03_QC/01_busco"
 sample="schVir"
 
