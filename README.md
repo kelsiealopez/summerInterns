@@ -95,9 +95,10 @@ hifiasm -o ${outdir}/${sample_name} -t 32 ${input_name}.fastq.gz
 indir="/n/netscratch/edwards_lab/Lab/kelsielopez/suboscines/schVir"
 sample_name="schVir"
 awk '/^S/{print ">"\$2;print \$3}' \
-  ${indir}/${sample_name}.bp.hap1.p_ctg.gfa \
-  > ${indir}/${sample_name}.bp.hap1.p_ctg.fa
+  ${indir}/${sample_name}.hap1.p_ctg.gfa \
+  > ${indir}/${sample_name}.hap1.p_ctg.fa
 
+# repeat for hap2 (hap1.p_ctg.fa) and primary assembly (.p_ctg.fa) for all of the birds 
 ```
 
 
