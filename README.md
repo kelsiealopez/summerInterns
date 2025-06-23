@@ -119,9 +119,28 @@ cd
 # unzip the tar file 
 tar -xvf quast-quast_5.3.0.tar
 
-# bunch of files should be unpacekd
+# bunch of files should be unpacked
+
+##### ASK ME ABOUT THIS STEP, WE CAN DO IT TOGETHER BECAUSE THE TERMINAL COULD BREAK IF YOU MAKEK A MISTAKE IN THIS BASHRC FILE #######
+
+# open bashrc file
+nano .bashrc
+
+# User specific aliases and functions
+export PATH=/n/home03/aporrasvargas/quast-quast_5.3.0:$PATH
+
+# exit, save file 
+
+# make changes permanent
+source .bashrc
+
+# now you should be able to call quast from any directory 
+
+# test by running
+quast.py
 
 mkdir /n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/03_QC/00_quast
+
 
 ```
 
