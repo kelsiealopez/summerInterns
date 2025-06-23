@@ -52,6 +52,11 @@ bam2fastq -o ${input_name} ${input_name}.bam
 **Install Hifiasm:**
 ```bash
 conda install -c bioconda hifiasm
+
+# test that it is working by running
+hifiasm
+
+# a menu with different options should come up
 ```
 
 **Run assembly pipeline (Example for schVir)**
