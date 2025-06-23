@@ -101,6 +101,36 @@ awk '/^S/{print ">"\$2;print \$3}' \
 ```
 
 
+## 4. Run QUAST to test assembly quality
+
+
+```bash
+# First install quast https://github.com/ablab/quast
+
+```
+
+```bash
+#!/bin/bash
+#SBATCH -p test # doesn't take too long to run 
+#SBATCH -c 8
+#SBATCH -t 0-12:00
+#SBATCH -o output_quast_schVir_%j.out
+#SBATCH -e errors_quast_schVir_%j.err 
+#SBATCH --mem=64G
+#SBATCH --mail-type=END
+
+indir="/n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/02_assembly/01_fa" # these are old directories and different files but you know what to do for the suboscines
+outdir="/n/netscratch/edwards_lab/Lab/aporrasvargas/suboscines/schVir/03_QC/00_quast"
+sample="schVir"
+
+quast.py \
+${indir}/${sample}.hap1.p_ctg.fa --large \ # set large because it is a big genome
+${indir}/${sample}.hap2.p_ctg.fa --large \ # '\' means to continue the code onto the next line 
+${indir}/${sample}.p_ctg.fa --large \
+-o ${outdir} # specify the output directory where all the files are written to 
+
+```
+
 
 
 
