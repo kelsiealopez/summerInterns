@@ -33,13 +33,13 @@ Adjust sample paths and variable names as needed.
 
 ## 1. Convert BAM to FASTQ
 
-**Install the tool:**
+**Install pacbio tool kit (pbtk):**
 
 ```bash
 conda install -c bioconda pbtk
 ```
 
-**Convert (Example for schVir)**
+**Convert bam to fastq (Example for schVir)**
 ```bash
 input_name="/n/netscratch/edwards_lab/Lab/kelsielopez/suboscines/1_A01/hifi_reads/m84147_250529_184003_s1.hifi_reads.bc1015"
 bam2fastq -o ${input_name} ${input_name}.bam
@@ -84,7 +84,7 @@ hifiasm -o ${outdir}/${sample_name} -t 32 ${input_name}.fastq.gz
 ## 3. Convert gfa to fa
 ```bash
 #!/bin/bash
-#SBATCH -p test # this shouldn't take too logn so you can submit to test partition. test partition is for quick jobs taht take less than 12 hours
+#SBATCH -p test # this shouldn't take too long so you can submit to test partition. test partition is for quick jobs taht take less than 12 hours
 #SBATCH -c 8
 #SBATCH -t 0-03:00 # submit for 3 hours which is probably more than enough but still over requesting is better than under requesting and having your job time out 
 #SBATCH -o gfa_to_fa_%j.out
@@ -102,7 +102,7 @@ awk '/^S/{print ">"\$2;print \$3}' \
 ```
 
 
-## 4. Run QUAST to test assembly quality
+## 4. Run QUAST to assess assembly quality
 
 
 ```bash
@@ -168,7 +168,7 @@ ${indir}/${sample}.p_ctg.fa --large \
 
 
 
-## 4. Run BUSCO to test assembly completeness
+## 4. Run BUSCO to assess assembly completeness
 
 
 ```bash
